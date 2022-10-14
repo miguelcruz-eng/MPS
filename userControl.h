@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "user.h"
+
 class userControl
 {
 public:
@@ -10,7 +12,7 @@ public:
     ~userControl();
 
 private:
-
+    std::vector<user*> usuario;
 };
 
 #endif

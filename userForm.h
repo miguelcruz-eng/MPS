@@ -3,10 +3,15 @@
 
 #pragma once
 
+#include <fstream>
+#include <iostream>
+#include <vector>
+
 class userForm
 {
 public:
     userForm();
+    Menu();
     ~userForm();
 
 private:
