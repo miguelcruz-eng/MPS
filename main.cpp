@@ -2,9 +2,11 @@
 #include <iostream>
 #include <vector>
 
-#include "userControl.h"
+#include "userForm.h"
 
 int main(void)
 {
-
+    userForm mn;
+    mn.Menu();
+    return 0;
 }

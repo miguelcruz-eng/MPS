@@ -12,8 +12,11 @@ class user
 {
 public:
     user();
-    std::string get();
-    void set();
+    user(std::string login, std::string pass);
+    std::string getLogin();
+    std::string getPass();
+    void setLogin(std::string login);
+    void setPass(std::string pass);
     ~user();
 
 private:

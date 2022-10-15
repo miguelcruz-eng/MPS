@@ -4,11 +4,17 @@
 #pragma once
 
 #include "user.h"
+#include "userPersistence.h"
+#include "userLoginException.h"
+#include "userPassException.h"
 
 class userControl
 {
 public:
     userControl();
+    void carregarDados();
+    void salvaUsuario(std::string dados1, std::string dados2);
+    void checaDado(std::string dados1, std::string dados2);
     ~userControl();
 
 private:
