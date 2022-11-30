@@ -50,7 +50,7 @@ void userControl::checaCadastroUsuario(std::string dados)
     {
         if (typeid(dados[i]).name() != "c")
         {
-            throw
+     
         }
     }
     
