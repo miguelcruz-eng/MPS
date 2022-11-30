@@ -44,15 +44,19 @@ void userForm::Menu()
         cin>>dado2;
         cout<<"Repita a Senha inserida: ";
         cin>>dado3;
-        if(dado2 != dado3)
+        try
         {
-            cout<<"Dados invalidos!"<<endl;
-            Menu();
-        }else
-        {
-            controler.salvaUsuario(dado1,dado2);
+            dado1.erase(dado1.begin()+13,dado1.end());
+            dado2.erase(dado2.begin()+20,dado2.end());
+            controler.checaCadastroUsuario(dado1);
+            controler.checaCadastroSenha(dado2, dado3);
+            controler.salvaUsuario(dado1, dado2);
             cout<<"Cadastro realizado com sucesso!"<<endl;
             Menu();
+        }
+        catch(string e)
+        {
+            cout << e << '\n';
         }
         break;
     case 3:
