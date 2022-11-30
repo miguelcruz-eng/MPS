@@ -46,11 +46,12 @@ void userControl::checaCadastroSenha(std::string dados1, std::string dados2)
 
 void userControl::checaCadastroUsuario(std::string dados)
 {
+    userLoginException log;
     for (size_t i = 0; i < dados.size(); i++)
     {
         if (typeid(dados[i]).name() != "c")
         {
-     
+            throw log.LoginException("Caracteres invalidos!");
         }
     }
     
