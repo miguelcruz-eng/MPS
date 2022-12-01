@@ -15,7 +15,7 @@ public:
     void Menu();
     void MenuPrincipal();
     void MenuCadastro();
-    void Menu2(std::string nome);
+    void Menu2(user* usuario);
     ~userForm();
 
 private:

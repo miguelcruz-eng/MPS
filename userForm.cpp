@@ -118,11 +118,11 @@ void userForm::Menu()
     }
 }
 
-void userForm::Menu2(string nome)
+void userForm::Menu2(user* usuario)
 {
     int escolha;
     userControl controler;
-    cout<<"Seja Bem Vindo "<<nome<<endl;
+    cout<<"Seja Bem Vindo "<<usuario->getLogin()<<endl;
     cout<<"ALGO INTERESSANTE PARA O USUARIO: ";
     cout<<"('-')/"<<endl;
     while(1)
