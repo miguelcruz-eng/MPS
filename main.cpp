@@ -9,7 +9,7 @@ int main(void)
 {
     
     FILE *arquivo;
-    arquivo = fopen("arqUser.txt","w");
+    arquivo = fopen("arqUser.txt","wt");
         
     userForm mn;
     mn.Menu();
