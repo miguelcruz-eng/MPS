@@ -76,7 +76,7 @@ void userForm::Menu()
             getline(cin,dado1);
             cout<<"Insira uma Senha: ";
             getline(cin,dado2);
-            cout<<"Repita a Senha inserida: ";
+            cout<<"Digite novamente a Senha: ";
             getline(cin,dado3);
             if(dado1.size() > 13)
             dado1.erase(dado1.begin()+13,dado1.end());
