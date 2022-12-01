@@ -8,7 +8,9 @@
 int main(void)
 {
     
-    FILE *arqUser
+    FILE *arquivo;
+    arquivo = fopen("arqUser.txt","w");
+        
     userForm mn;
     mn.Menu();
     return 0;
