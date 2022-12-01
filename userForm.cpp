@@ -72,6 +72,7 @@ void userForm::Menu()
             Menu2(dado1);
             break;
         case 2:
+            arquivo = fopen ("arqUser.txt","r+");
             cout<<"Insira o novo Usuario: ";
             getline(cin,dado1);
             cout<<"Insira uma Senha: ";
@@ -96,6 +97,7 @@ void userForm::Menu()
             controler.salvaUsuario(dado1, dado2);
             cout<<"Cadastro realizado com sucesso!"<<endl;
             break;
+            fclose (arquivo);
         case 3:
             cout<<"XAU!"<<endl;
             exit(0);
