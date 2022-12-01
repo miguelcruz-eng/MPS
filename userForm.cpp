@@ -30,38 +30,45 @@ void userForm::Menu()
         try
         {
             controler.checaDado(dado1,dado2);
-            Menu2(dado1);
         }
         catch(string e)
         {
             cout << e << '\n';
-        }
-        break;
-    case 2:
-        cout<<"Insira o novo Usuario: ";
-        cin>>dado1;
-        cout<<"Insira uma Senha: ";
-        cin>>dado2;
-        cout<<"Repita a Senha inserida: ";
-        cin>>dado3;
-        try
-        {
-            dado1.erase(dado1.begin()+13,dado1.end());
-            dado2.erase(dado2.begin()+20,dado2.end());
-            controler.checaCadastroUsuario(dado1);
-            controler.checaCadastroSenha(dado2, dado3);
-            controler.salvaUsuario(dado1, dado2);
-            cout<<"Cadastro realizado com sucesso!"<<endl;
             Menu();
         }
+        Menu2(dado1);
+        break;
+    case 2:
+        getchar();
+        cout<<"Insira o novo Usuario: ";
+        getline(cin,dado1);
+        cout<<"Insira uma Senha: ";
+        getline(cin,dado2);
+        cout<<"Repita a Senha inserida: ";
+        getline(cin,dado3);
+        if(dado1.size() > 13)
+        dado1.erase(dado1.begin()+13,dado1.end());
+        if(dado2.size() > 20)
+        dado2.erase(dado2.begin()+20,dado2.end());
+        if(dado3.size() > 20)
+        dado3.erase(dado3.begin()+20,dado3.end());
+        try
+        {
+            controler.checaCadastroUsuario(dado1);
+            controler.checaCadastroSenha(dado2,dado3);
+        }
         catch(string e)
         {
             cout << e << '\n';
+            Menu();
         }
+        controler.salvaUsuario(dado1, dado2);
+        cout<<"Cadastro realizado com sucesso!"<<endl;
+        Menu();
         break;
     case 3:
         cout<<"XAU!"<<endl;
-        return;
+        exit(0);
     default:
         cout<<"entrada invalida"<<endl;
         Menu();
