@@ -23,7 +23,7 @@ void userForm::MenuCadastro() {
     cout << "\n------------------------ Cadastro ------------------------\n\n";
 
     cout << "[1] Signin\n";
-    cout << "[2] Signup\n"; // Qual seria a necessidade de signup se ja estamos no cadastro miguel, acho que o necessario e so o sigin e o sair.
+    cout << "[2] Signup\n";
     cout << "[0] Sair\n";
 
     cout << "\n------------------------------------------------------------\n\n";
