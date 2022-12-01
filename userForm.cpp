@@ -34,6 +34,7 @@ void userForm::MenuCadastro() {
 void userForm::Menu()
 {   
     userControl controler;
+    user * u;
     controler.carregarDados();
     int esc;
     string dado1;
@@ -64,14 +65,14 @@ void userForm::Menu()
             getline(cin,dado2);
             try
             {
-                user* u = controler.checaDado(dado1,dado2);
+                u = controler.checaDado(dado1,dado2);
             }
             catch(string e)
             {
                 cout << e << '\n';
                 Menu();
             }
-            Menu2(dado1);
+            Menu2(u);
             break;
         case 2:
             cout<<"Para realizar o cadastro, é necessário ter o acesso, digite a senha:\n";
