@@ -64,7 +64,7 @@ void userForm::Menu()
             getline(cin,dado2);
             try
             {
-                controler.checaDado(dado1,dado2);
+                user* u = controler.checaDado(dado1,dado2);
             }
             catch(string e)
             {
