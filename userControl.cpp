@@ -11,15 +11,15 @@ void userControl::carregarDados()
     usuario = per.carregarUsuario();
 }
 
-void userControl::salvaUsuario(std::string dados1, std::string dados2)
+void userControl::salvaUsuario(std::string dados1, std::string dados2, std::string dados3)
 {
     userPersistence per;
-    auto vet = new user(dados1, dados2);
+    auto vet = new user(dados1, dados2, dados3);
     usuario.push_back(vet);
-    per.salvarUsuario(dados1,dados2);
+    per.salvarUsuario(dados1,dados2, dados3);
 }
 
-void userControl::checaDado(std::string dados1, std::string dados2)
+user* userControl::checaDado(std::string dados1, std::string dados2)
 {
     userLoginException log;
     userPassException pass;
@@ -29,7 +29,7 @@ void userControl::checaDado(std::string dados1, std::string dados2)
         {
             if(dados2 == usuario[i]->getPass())
             {
-                return;
+                return usuario[i];
             }else
             {
                 throw pass.PassException("Senha Invalida!");

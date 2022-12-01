@@ -13,6 +13,8 @@ class userForm
 public:
     userForm();
     void Menu();
+    void MenuPrincipal();
+    void MenuCadastro();
     void Menu2(std::string nome);
     ~userForm();
 

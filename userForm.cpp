@@ -1,4 +1,5 @@
 #include "userForm.h"
+#include <Windows.h>
 
 using namespace std;
 
@@ -37,7 +38,8 @@ void userForm::Menu()
     int esc;
     string dado1;
     string dado2, dado3;
-    String senhaU = "123456";
+    string senhaU = "123456";
+    string code;
 
     system("cls");
 
@@ -72,32 +74,40 @@ void userForm::Menu()
             Menu2(dado1);
             break;
         case 2:
-            arquivo = fopen ("arqUser.txt","r+");
-            cout<<"Insira o novo Usuario: ";
-            getline(cin,dado1);
-            cout<<"Insira uma Senha: ";
-            getline(cin,dado2);
-            cout<<"Digite novamente a Senha: ";
-            getline(cin,dado3);
-            if(dado1.size() > 13)
-            dado1.erase(dado1.begin()+13,dado1.end());
-            if(dado2.size() > 20)
-            dado2.erase(dado2.begin()+20,dado2.end());
-            if(dado3.size() > 20)
-            dado3.erase(dado3.begin()+20,dado3.end());
-            try
+            cout<<"Para realizar o cadastro, é necessário ter o acesso, digite a senha:\n";
+            cin>>code;
+            if(code == senhaU) 
             {
-                controler.checaCadastroUsuario(dado1);
-                controler.checaCadastroSenha(dado2,dado3);
-            }
-            catch(string e)
+                cout<<"Insira o novo Usuario: ";
+                getline(cin,dado1);
+                cout<<"Insira uma Senha: ";
+                getline(cin,dado2);
+                cout<<"Digite novamente a Senha: ";
+                getline(cin,dado3);
+                if(dado1.size() > 13)
+                dado1.erase(dado1.begin()+13,dado1.end());
+                if(dado2.size() > 20)
+                dado2.erase(dado2.begin()+20,dado2.end());
+                if(dado3.size() > 20)
+                dado3.erase(dado3.begin()+20,dado3.end());
+                try
+                {
+                    controler.checaCadastroUsuario(dado1);
+                    controler.checaCadastroSenha(dado2,dado3);
+                }
+                catch(string e)
+                {
+                    cout << e << endl;
+                }
+                cout<<"Qual o seu cargo?\n";
+                getline(cin,dado3);
+                controler.salvaUsuario(dado1, dado2, dado3);
+                cout<<"Cadastro realizado com sucesso!"<<endl;         
+            }else
             {
-                cout << e << endl;
+                cout<<"Acesso Negado\n";
             }
-            controler.salvaUsuario(dado1, dado2);
-            cout<<"Cadastro realizado com sucesso!"<<endl;
             break;
-            fclose (arquivo);
         case 3:
             cout<<"XAU!"<<endl;
             exit(0);

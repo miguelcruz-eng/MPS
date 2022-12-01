@@ -13,8 +13,8 @@ class userControl
 public:
     userControl();
     void carregarDados();
-    void salvaUsuario(std::string dados1, std::string dados2);
-    void checaDado(std::string dados1, std::string dados2);
+    void salvaUsuario(std::string dados1, std::string dados2, std::string dados3);
+    user* checaDado(std::string dados1, std::string dados2);
     void checaCadastroSenha(std::string dados1, std::string dados2);
     void checaCadastroUsuario(std::string dados);
     ~userControl();

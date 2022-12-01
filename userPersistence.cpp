@@ -11,7 +11,7 @@ userPersistence::userPersistence()
 vector<user*> userPersistence::carregarUsuario()
 {
     ifstream fp;
-    string dados1, dados2;
+    string dados1, dados2, dados3;
     vector<user*> vet;
     user* us;
 
@@ -22,7 +22,8 @@ vector<user*> userPersistence::carregarUsuario()
         if (fp.eof() || fp.bad())
             break;
         getline(fp, dados2);
-        us = new user(dados1, dados2);
+        getline(fp, dados3);
+        us = new user(dados1, dados2, dados3);
         vet.push_back(us);
         }
     }
@@ -31,14 +32,15 @@ vector<user*> userPersistence::carregarUsuario()
     return vet;
 }
 
-void userPersistence::salvarUsuario(string dados1, string dados2)
+void userPersistence::salvarUsuario(string dados1, string dados2, string dados3)
 {
     ofstream fp;
     fp.open("usuario.txt", fstream::app);
 
     if(fp.is_open()){
         fp<<dados1<<endl;
-        fp<<dados2<<endl;     
+        fp<<dados2<<endl;
+        fp<<dados3<<endl;  
     }
     fp.close();
 }

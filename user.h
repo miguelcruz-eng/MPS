@@ -12,7 +12,7 @@ class user
 {
 public:
     user();
-    user(std::string login, std::string pass);
+    user(std::string login, std::string pass, std::string funcao);
     std::string getLogin();
     std::string getPass();
     void setLogin(std::string login);
