@@ -22,6 +22,7 @@ public:
 private:
     std::string login;
     std::string pass;
+    std::string funcao;
 };
 
 #endif

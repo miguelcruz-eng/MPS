@@ -5,10 +5,11 @@ user::user()
     
 }
 
-user::user(std::string login, std::string pass)
+user::user(std::string login, std::string pass, std::string pass)
 {
     this->login = login;
     this->pass = pass;
+    this->funcao = funcao;
 }
 
 std::string user::getLogin()
