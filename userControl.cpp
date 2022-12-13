@@ -67,6 +67,8 @@ void userControl::checaCadastroSenha(std::string dados1, std::string dados2)
 void userControl::checaCadastroUsuario(std::string dados)
 {
     userLoginException log;
+    if (dados.empty())
+        throw log.LoginException("campo nao pode estar vazio!");
     for (size_t i = 0; i < dados.size(); i++)
     {
         for (int j = 0; j < 10; j++)
