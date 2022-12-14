@@ -7,12 +7,15 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "GerenciaFuncionario.h"
+#include "userLoginException.h"
 
 class user
 {
 public:
     user();
     user(std::string login, std::string pass, std::string funcao);
+    void criafuncionario(std::string funcao)
     std::string getLogin();
     std::string getPass();
     void setLogin(std::string login);
@@ -22,7 +25,7 @@ public:
 private:
     std::string login;
     std::string pass;
-    std::string funcao;
+    GerenciaFuncionario funcionario;
 };
 
 #endif

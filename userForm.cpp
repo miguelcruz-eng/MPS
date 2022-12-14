@@ -102,7 +102,14 @@ void userForm::Menu()
                 }
                 cout<<"Qual o seu cargo?\n";
                 getline(cin,dado3);
-                controler.salvaUsuario(dado1, dado2, dado3);
+                try
+                {
+                    controler.salvaUsuario(dado1, dado2, dado3);
+                }
+                catch(string e)
+                {
+                    cout << e << endl;
+                } 
                 cout<<"Cadastro realizado com sucesso!"<<endl;         
             }else
             {

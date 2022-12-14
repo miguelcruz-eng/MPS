@@ -9,7 +9,20 @@ user::user(std::string login, std::string pass, std::string funcao)
 {
     this->login = login;
     this->pass = pass;
-    this->funcao = funcao;
+    criafuncionario(funcao);
+}
+
+void user::criafuncionario(std::string funcao) {
+    userLoginException log;
+    switch (funcao)
+    {
+    case "gerente":
+        funcionario = new gerente;
+        break;
+    default:
+        throw log.LoginException("Funcao nao existe!");
+        break;
+    }
 }
 
 std::string user::getLogin()
