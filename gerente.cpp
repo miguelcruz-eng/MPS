@@ -7,3 +7,4 @@ double gerente::calculaSalario(double salario) {
 int gerente::acesso() {
     return 1;
 }
+

@@ -9,13 +9,14 @@
 #include <fstream>
 #include "gerenciaFuncionario.h"
 #include "userLoginException.h"
+#include "gerente.hpp"
 
 class user
 {
 public:
     user();
     user(std::string login, std::string pass, std::string funcao);
-    void criafuncionario(std::string funcao)
+    void criafuncionario(std::string funcao);
     std::string getLogin();
     std::string getPass();
     void setLogin(std::string login);
@@ -25,7 +26,7 @@ public:
 private:
     std::string login;
     std::string pass;
-    gerenciaFuncionario funcionario;
+    gerenciaFuncionario* func;
 };
 
 #endif

@@ -14,10 +14,10 @@ user::user(std::string login, std::string pass, std::string funcao)
 
 void user::criafuncionario(std::string funcao) {
     userLoginException log;
-    switch (funcao)
+    switch (1)
     {
-    case "gerente":
-        funcionario = new gerente;
+    case 1:
+        func = new gerente;
         break;
     default:
         throw log.LoginException("Funcao nao existe!");

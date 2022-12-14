@@ -11,7 +11,7 @@ class gerenciaFuncionario
 public:
     gerenciaFuncionario();
     ~gerenciaFuncionario();
-
+    virtual int acesso() = 0;
     virtual double calculaSalario(double salario) = 0;
 
 private:

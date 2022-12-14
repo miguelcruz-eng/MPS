@@ -1,5 +1,5 @@
 #include "userForm.h"
-#include <Windows.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -72,7 +72,7 @@ void userForm::Menu()
                 cout << e << '\n';
                 Menu();
             }
-            Menu2(u);
+            cout<<"Login efetuado com suceso!:\n";
             break;
         case 2:
             cout<<"Para realizar o cadastro, é necessário ter o acesso, digite a senha:\n";

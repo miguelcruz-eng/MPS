@@ -6,6 +6,7 @@ class gerente: public gerenciaFuncionario
 	public:
 		gerente() = default;
 		double calculaSalario(double salario);
+		int acesso();
 		~gerente() = default;
 	protected:
 	
