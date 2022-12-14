@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "GerenciaFuncionario.h"
+#include "gerenciaFuncionario.h"
 #include "userLoginException.h"
 
 class user
@@ -25,7 +25,7 @@ public:
 private:
     std::string login;
     std::string pass;
-    GerenciaFuncionario funcionario;
+    gerenciaFuncionario funcionario;
 };
 
 #endif
