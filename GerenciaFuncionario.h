@@ -6,11 +6,11 @@
  *  designações.
  *  \class
 */
-class GerenciaFuncionario
+class gerenciaFuncionario
 {
 public:
-    GerenciaFuncionario();
-    ~GerenciaFuncionario();
+    gerenciaFuncionario();
+    ~gerenciaFuncionario();
 
     virtual double calculaSalario(double salario) = 0;
 

@@ -126,35 +126,6 @@ void userForm::Menu()
     }
 }
 
-void userForm::Menu2(user* usuario)
-{
-    int escolha;
-    userControl controler;
-    cout<<"Seja Bem Vindo "<<usuario->getLogin()<<endl;
-    cout<<"ALGO INTERESSANTE PARA O USUARIO: ";
-    cout<<"('-')/"<<endl;
-    while(1)
-    {
-        system("cls");
-        cout<<"Selecione uma opção: "<<endl;
-        cout<<"1.Logoff"<<endl;
-        cout<<"2.sair"<<endl;
-        cin>>escolha;
-        switch (escolha)
-        {
-        case 1:
-            Menu();
-            break;
-        case 2:
-            return;
-            break;
-        default:
-            cout<<"invalido!"<<endl;
-            break;
-        }
-    }
-}
-
 userForm::~userForm()
 {
 

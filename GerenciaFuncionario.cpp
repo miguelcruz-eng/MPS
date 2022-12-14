@@ -1,11 +1,11 @@
-#include "GerenciaFuncionario.h"
+#include "gerenciaFuncionario.h"
 
-GerenciaFuncionario::GerenciaFuncionario()
+gerenciaFuncionario::gerenciaFuncionario()
 {
 
 }
 
-GerenciaFuncionario::~GerenciaFuncionario()
+gerenciaFuncionario::~gerenciaFuncionario()
 {
 
 }

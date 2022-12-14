@@ -1,7 +1,7 @@
 #pragma once
-#include "GerenciaFuncionario.h"
+#include "gerenciaFuncionario.h"
 
-class gerente: public GerenciaFuncionario
+class gerente: public gerenciaFuncionario
 {
 	public:
 		gerente() = default;

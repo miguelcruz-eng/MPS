@@ -15,7 +15,6 @@ public:
     void Menu();
     void MenuPrincipal();
     void MenuCadastro();
-    void Menu2(user* usuario);
     ~userForm();
 
 private:
