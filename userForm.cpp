@@ -2,6 +2,9 @@
 
 using namespace std;
 
+typedef unsigned char Byte;
+typedef Byte cs_byte;
+
 userForm::userForm()
 {
 
@@ -19,9 +22,7 @@ void userForm::MenuPrincipal() {
 }
 
 
-void userForm::MenuCadastro() {
-    userControl controler;
-    controler.carregarDados();
+void userForm::MenuCadastro(userControl controler) {
     string code;
     string senhaU = "123456";
     string dado1, dado2, dado3;
@@ -71,10 +72,7 @@ void userForm::MenuCadastro() {
     }
 }
 
-void userForm::MenuLogin() {
-    userControl controler;
-    user * u;
-    controler.carregarDados();
+void userForm::MenuLogin(userControl controler, user * u) {
     string dado1, dado2;
     cout<<"Usuario: ";
     getline(cin,dado1);
@@ -96,6 +94,10 @@ void userForm::MenuLogin() {
 
 void userForm::Menu()
 {   
+    user * u;
+    userControl controler;
+    controler.carregarDados();
+
     int esc;
 
     system("cls");
@@ -110,14 +112,15 @@ void userForm::Menu()
         MenuPrincipal();
 
         cin>>esc;
+        getchar();
 
         switch (esc)
         {
         case 1:
-            MenuLogin();
+            MenuLogin(controler, u);
             break;
         case 2:
-            MenuCadastro();
+            MenuCadastro(controler);
             break;
         case 3:
             cout<<"Encerrando aplicacao...!"<<endl;

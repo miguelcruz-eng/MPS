@@ -15,8 +15,8 @@ public:
     userForm();
     void Menu();
     void MenuPrincipal();
-    void MenuCadastro();
-    void MenuLogin();
+    void MenuCadastro(userControl controler);
+    void MenuLogin(userControl controler, user * u);
     ~userForm();
 
 private:

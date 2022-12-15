@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <conio.h>
 
-using namespace std;
-
 #include "userForm.h"
 
 int main(void)
