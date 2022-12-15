@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <windows.h>
 #include "userControl.h"
 
 class userForm
@@ -15,6 +16,7 @@ public:
     void Menu();
     void MenuPrincipal();
     void MenuCadastro();
+    void MenuLogin();
     ~userForm();
 
 private:
