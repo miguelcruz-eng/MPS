@@ -1,95 +1,56 @@
-#include "userControl.h"
+#include "User.cpp"
 
-userControl::userControl()
+// Classe que gerencia os usuários
+class UserControl
 {
+private:
+    std::vector<User> m_users;
 
-}
-
-void userControl::carregarDados()
-{
-    userPersistence per;
-    usuario = per.carregarUsuario();
-}
-
-void userControl::salvaUsuario(std::string dados1, std::string dados2, std::string dados3)
-{
-    userPersistence per;
-    auto vet = new user(dados1, dados2, dados3);
-    usuario.push_back(vet);
-    per.salvarUsuario(dados1,dados2, dados3);
-}
-
-user* userControl::checaDado(std::string dados1, std::string dados2)
-{
-    userLoginException log;
-    userPassException pass;
-    for(int i = 0; i < usuario.size(); i++)
+public:
+    // Adiciona um novo usuário
+    void createUser(int id, const std::string &login, const std::string &password)
     {
-        if(dados1 == usuario[i]->getLogin() )
-        {
-            if(dados2 == usuario[i]->getPass())
-            {
-                return usuario[i];
-            }else
-            {
-                throw pass.PassException("Senha Invalida!");
+        m_users.emplace_back(id, login, password);
+    }
+
+    // Obtém todos os usuários
+    std::vector<User> getUsers() const
+    {
+        return m_users;
+    }
+
+    // Obtém um usuário pelo login
+    User getUserByLogin(const std::string &login) const
+    {
+        for (const auto &user : m_users) {
+            if (user.getLogin() == login) {
+                return user;
+            }
+        }
+
+        throw std::runtime_error("Usuário não encontrado");
+    }
+
+    // Atualiza os dados de um usuário
+    void updateUser(const std::string &login, const std::string &newPassword)
+    {
+        for (auto &user : m_users) {
+            if (user.getLogin() == login) {
+                user.setPassword(newPassword);
+                return;
+            }
+        }
+
+        throw std::runtime_error("Usuário não encontrado");
+    }
+
+    // Exclui um usuário pelo id
+    void deleteUser(int id)
+    {
+        for (auto it = m_users.begin(); it != m_users.end(); ++it) {
+            if (it->getId() == id) {
+                m_users.erase(it);
             }
         }
     }
-    throw log.LoginException("Usuario Invalido!");
-}
-
-void userControl::checaCadastroSenha(std::string dados1, std::string dados2)
-{
-    userPassException pass;
-    int contador = 0;
-    if(dados1 == dados2)
-    {
-    for (size_t i = 0; i < dados1.size(); i++)
-    {
-        for (int j = 0; j < 10; j++)
-        {
-            if ((int(dados2[i]) - '0') == j)
-            {
-                contador ++;
-            }
-        }
-    }
-    }else{
-        throw pass.PassException("Senha invalida, dados nao batem!");
-    }
-    if(contador < 2 || contador >= dados2.size()){
-        std::cout<< contador <<std::endl;
-        throw pass.PassException("Senha invalida, a senha deve conter letras e numeros, pelo menos dois numeros!");
-    }
-}
-
-void userControl::checaCadastroUsuario(std::string dados)
-{
-    userLoginException log;
-    if (dados.empty())
-        throw log.LoginException("campo nao pode estar vazio!");
-    for (size_t i = 0; i < dados.size(); i++)
-    {
-        for (int j = 0; j < 10; j++)
-        {   
-            if ((int(dados[i]) - '0') == j)
-            {
-                throw log.LoginException("Caracteres para usuario invalidos!");
-            }
-        }
-        
-    }
-    for(int i = 0; i < usuario.size(); i++) {
-        if(dados == usuario[i]->getLogin() )
-        {
-            throw log.LoginException("Usuario ja existe!");
-        }
-    }
-    return;
-}
-
-userControl::~userControl()
-{
-
-}
+};
